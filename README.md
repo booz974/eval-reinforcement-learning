@@ -34,6 +34,51 @@ eval-reinforcement-learning/
     └── deployment-patterns.md        ← Sim → shadow → A/B → rollout → monitoring
 ```
 
+## Installation
+
+### Hermes Agent
+
+```bash
+# Clone into your personal skills directory
+git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.hermes/skills/eval-reinforcement-learning
+# Windows:
+git clone https://github.com/booz974/eval-reinforcement-learning.git ~/AppData/Local/hermes/skills/eval-reinforcement-learning
+
+# Reload skills
+/hermes skills reload
+# or restart the session
+```
+
+### Claude Code
+
+```bash
+# Personal skills
+git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.claude/skills/eval-reinforcement-learning
+
+# Project-local
+git clone https://github.com/booz974/eval-reinforcement-learning.git .claude/skills/eval-reinforcement-learning
+```
+
+### GitHub Copilot CLI
+
+```bash
+# Personal
+git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.copilot/skills/eval-reinforcement-learning
+
+# Project-local
+git clone https://github.com/booz974/eval-reinforcement-learning.git .github/skills/eval-reinforcement-learning
+```
+
+### Amp
+
+```bash
+git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.agents/skills/eval-reinforcement-learning
+```
+
+### Manual (any agent)
+
+Copy the `SKILL.md` and `references/` folder into your agent's skills directory. The skill follows the standard agent skill format — no dependencies, no configuration needed.
+
 ## Usage (Hermes Agent)
 
 ```
