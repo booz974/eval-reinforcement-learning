@@ -4,13 +4,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Stars](https://img.shields.io/github/stars/booz974/eval-reinforcement-learning?style=social)](https://github.com/booz974/eval-reinforcement-learning)
 
-> **Your AI agent just became an RL engineer.** Load this skill into Hermes, Claude Code, or any compatible agent and it will tell you which algorithm to use, how to design your MDP, and how to deploy — no RL PhD required.
+> **Your AI agent just became an RL engineer.** Load this skill into Hermes, Claude Code, or any compatible agent and it will tell you which algorithm to use, how to design your MDP, and how to deploy, no RL PhD required.
 
-## Why This Exists
+## Why this exists
 
-Reinforcement learning is powerful but intimidating. Most engineers waste weeks picking the wrong algorithm or debugging a poorly designed reward function. This skill encodes the decision-making frameworks that experienced RL engineers use — so your agent can apply them instantly.
+Reinforcement learning is powerful but intimidating. Most engineers waste weeks picking the wrong algorithm or debugging a poorly designed reward function. This skill encodes the decision-making frameworks that experienced RL engineers use, so your agent can apply them instantly.
 
-## What It Does (30-second demo)
+## What it does (30-second demo)
 
 ```
 You: "I have a recommendation system. Users see products, I want to maximize 
@@ -31,12 +31,12 @@ Agent: ✅ YES, this is RL.
 
 ## Coverage
 
-| Domain | What Your Agent Will Know |
+| Domain | What your agent will know |
 |---|---|
-| **Algorithm selection** | Q-Learning, DQN, PPO, SAC, DDPG — which one for YOUR problem |
+| **Algorithm selection** | Q-Learning, DQN, PPO, SAC, DDPG, which one for your problem |
 | **MDP design** | How to translate real business problems into states/actions/rewards |
 | **Reward engineering** | Avoiding reward hacking, sparse rewards, shaping patterns |
-| **Exploration** | ε-greedy → curiosity → entropy — what to use when |
+| **Exploration** | ε-greedy → curiosity → entropy, what to use when |
 | **Deployment** | Simulation → shadow → A/B test → production pipeline |
 | **Offline RL** | Learning from historical data when you can't explore live |
 | **Multi-agent** | MARL architectures, centralized critics, parameter sharing |
@@ -47,7 +47,7 @@ Agent: ✅ YES, this is RL.
 eval-reinforcement-learning/
 ├── SKILL.md                          ← Entry point: decision tree + algorithm comparison
 └── references/
-    ├── algorithm-selection.md        ← When NOT to use each algorithm (as important as when)
+    ├── algorithm-selection.md        ← When not to use each algorithm (as important as when)
     ├── value-methods.md              ← Q-Learning, SARSA, DQN, Double/Dueling DQN
     ├── policy-methods.md             ← REINFORCE → PPO → TRPO → DDPG
     ├── entropy-methods.md            ← SAC, maximum entropy framework
@@ -72,7 +72,7 @@ git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.claude/s
 # Any agent: copy SKILL.md + references/ into your skills directory
 ```
 
-## Real Problems This Solves
+## Real problems this solves
 
 - **Ad placement**: "Should I show ad A or B right now?" → Contextual bandit. "What sequence of ads maximizes lifetime value?" → Full RL.
 - **Dynamic pricing**: Adjust prices in real-time based on demand, inventory, competitor moves → PPO or SAC.
@@ -80,13 +80,13 @@ git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.claude/s
 - **Game AI**: Discrete actions, visual state → DQN with CNN encoder.
 - **Healthcare dosing**: Can't explore live, only historical data → Offline RL (CQL, IQL).
 
-## Why Not Just Use ChatGPT?
+## Why not just use ChatGPT?
 
-ChatGPT gives generic advice and hallucinates RL algorithms. This skill encodes structured, verified knowledge that your agent loads deterministically — it won't tell you to use DQN for continuous actions or forget to mention reward clipping.
+ChatGPT gives generic advice and hallucinates RL algorithms. This skill encodes structured, verified knowledge that your agent loads deterministically. It won't tell you to use DQN for continuous actions or forget to mention reward clipping.
 
 ## License
 
-MIT — use it, fork it, ship it.
+MIT. Use it, fork it, ship it.
 
 ---
 
