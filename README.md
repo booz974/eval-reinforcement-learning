@@ -1,107 +1,93 @@
 # eval-reinforcement-learning
 
-Technical skill for applying reinforcement learning. Decision-focused, implementation-ready.
+[![Hermes Skill](https://img.shields.io/badge/Hermes-Skill-6C4DF6)](https://github.com/booz974/eval-reinforcement-learning)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/booz974/eval-reinforcement-learning?style=social)](https://github.com/booz974/eval-reinforcement-learning)
 
-## What this skill does
+> **Your AI agent just became an RL engineer.** Load this skill into Hermes, Claude Code, or any compatible agent and it will tell you which algorithm to use, how to design your MDP, and how to deploy — no RL PhD required.
 
-Answers the practical questions of RL engineering:
+## Why This Exists
 
-- **Is my problem an RL problem?** → Decision tree in SKILL.md
-- **Which algorithm should I use?** → Selection matrix + detailed comparison
-- **How do I implement [algorithm]?** → `references/value-methods.md`, `references/policy-methods.md`, `references/entropy-methods.md`
-- **How do I design the MDP?** → `references/problem-framing.md`
-- **How do I engineer the reward?** → `references/reward-engineering.md`
-- **How do I explore effectively?** → `references/exploration-strategies.md`
-- **How do I deploy safely?** → `references/deployment-patterns.md`
-- **What about offline RL? Multi-agent? Model-based?** → Dedicated reference files
+Reinforcement learning is powerful but intimidating. Most engineers waste weeks picking the wrong algorithm or debugging a poorly designed reward function. This skill encodes the decision-making frameworks that experienced RL engineers use — so your agent can apply them instantly.
+
+## What It Does (30-second demo)
+
+```
+You: "I have a recommendation system. Users see products, I want to maximize 
+      retention over 6 months, not just immediate clicks. Is this RL?"
+
+Agent: ✅ YES, this is RL.
+       → Sequential decisions (each recommendation affects future behavior)
+       → Long-term reward (6-month retention, not immediate click)
+       → Actions alter state (user's preferences evolve)
+       
+       Algorithm: Contextual Bandit to start, then PPO for full RL.
+       Reward: retention_signal - churn_penalty
+       Deploy: Shadow mode first (log recommendations, don't act),
+               then A/B test 10% traffic.
+       
+       Full MDP design in references/problem-framing.md
+```
+
+## Coverage
+
+| Domain | What Your Agent Will Know |
+|---|---|
+| **Algorithm selection** | Q-Learning, DQN, PPO, SAC, DDPG — which one for YOUR problem |
+| **MDP design** | How to translate real business problems into states/actions/rewards |
+| **Reward engineering** | Avoiding reward hacking, sparse rewards, shaping patterns |
+| **Exploration** | ε-greedy → curiosity → entropy — what to use when |
+| **Deployment** | Simulation → shadow → A/B test → production pipeline |
+| **Offline RL** | Learning from historical data when you can't explore live |
+| **Multi-agent** | MARL architectures, centralized critics, parameter sharing |
 
 ## Structure
 
 ```
 eval-reinforcement-learning/
-├── SKILL.md                          ← Entry point: decision trees, algorithm selector
+├── SKILL.md                          ← Entry point: decision tree + algorithm comparison
 └── references/
-    ├── algorithm-selection.md        ← When NOT to use each algorithm
-    ├── value-methods.md              ← Q-Learning, SARSA, DQN, Double DQN, Dueling
-    ├── policy-methods.md             ← REINFORCE, A2C/A3C, PPO, TRPO, DDPG
+    ├── algorithm-selection.md        ← When NOT to use each algorithm (as important as when)
+    ├── value-methods.md              ← Q-Learning, SARSA, DQN, Double/Dueling DQN
+    ├── policy-methods.md             ← REINFORCE → PPO → TRPO → DDPG
     ├── entropy-methods.md            ← SAC, maximum entropy framework
-    ├── exploration-strategies.md     ← ε-greedy to curiosity to entropy
-    ├── problem-framing.md            ← Spotting RL problems, MDP design checklist
-    ├── reward-engineering.md         ← Shaping, sparse rewards, avoiding hacking
-    ├── offline-batch-rl.md           ← CQL, IQL, learning without interaction
-    ├── model-based-methods.md        ← Dyna, planning, when models help
-    ├── multi-agent-rl.md             ← Centralized/decentralized architectures
-    └── deployment-patterns.md        ← Sim → shadow → A/B → rollout → monitoring
+    ├── exploration-strategies.md     ← ε-greedy to curiosity-driven exploration
+    ├── problem-framing.md            ← MDP design checklist, spotting RL problems
+    ├── reward-engineering.md         ← Reward shaping, avoiding unintended behaviors
+    ├── offline-batch-rl.md           ← CQL, IQL, learning without interacting
+    ├── model-based-methods.md        ← When to use models vs model-free
+    ├── multi-agent-rl.md             ← Centralized/decentralized MARL patterns
+    └── deployment-patterns.md        ← Sim → shadow → A/B → gradual rollout
 ```
 
 ## Installation
 
-### Hermes Agent
-
 ```bash
-# Clone into your personal skills directory
+# Hermes Agent
 git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.hermes/skills/eval-reinforcement-learning
-# Windows:
-git clone https://github.com/booz974/eval-reinforcement-learning.git ~/AppData/Local/hermes/skills/eval-reinforcement-learning
 
-# Reload skills
-/hermes skills reload
-# or restart the session
-```
-
-### Claude Code
-
-```bash
-# Personal skills
+# Claude Code
 git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.claude/skills/eval-reinforcement-learning
 
-# Project-local
-git clone https://github.com/booz974/eval-reinforcement-learning.git .claude/skills/eval-reinforcement-learning
+# Any agent: copy SKILL.md + references/ into your skills directory
 ```
 
-### GitHub Copilot CLI
+## Real Problems This Solves
 
-```bash
-# Personal
-git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.copilot/skills/eval-reinforcement-learning
+- **Ad placement**: "Should I show ad A or B right now?" → Contextual bandit. "What sequence of ads maximizes lifetime value?" → Full RL.
+- **Dynamic pricing**: Adjust prices in real-time based on demand, inventory, competitor moves → PPO or SAC.
+- **Robot control**: Continuous motor commands, need stable learning → PPO, then SAC for sample efficiency.
+- **Game AI**: Discrete actions, visual state → DQN with CNN encoder.
+- **Healthcare dosing**: Can't explore live, only historical data → Offline RL (CQL, IQL).
 
-# Project-local
-git clone https://github.com/booz974/eval-reinforcement-learning.git .github/skills/eval-reinforcement-learning
-```
+## Why Not Just Use ChatGPT?
 
-### Amp
-
-```bash
-git clone https://github.com/booz974/eval-reinforcement-learning.git ~/.agents/skills/eval-reinforcement-learning
-```
-
-### Manual (any agent)
-
-Copy the `SKILL.md` and `references/` folder into your agent's skills directory. The skill follows the standard agent skill format — no dependencies, no configuration needed.
-
-## Usage (Hermes Agent)
-
-```
-/eval-reinforcement-learning                           → Decision trees + algorithm selection
-/eval-reinforcement-learning for [my problem]          → Diagnosis + recommendation
-/eval-reinforcement-learning algorithm-selection       → Detailed comparison
-```
-
-Compatible with any agent that supports the skill format (Hermes Agent, Claude Code, GitHub Copilot CLI, Amp).
-
-## Coverage
-
-| Domain | Algorithms |
-|---|---|
-| Value methods | Q-Learning, SARSA, DQN, Double DQN, Dueling DQN, Rainbow |
-| Policy methods | REINFORCE, A2C, A3C, PPO, TRPO, DDPG |
-| Entropy methods | SAC (Soft Actor-Critic) |
-| Exploration | ε-greedy, Boltzmann, UCB, Thompson sampling, entropy bonus, curiosity, parameter noise |
-| Offline/Batch | CQL, IQL, BCQ, Decision Transformer |
-| Model-based | Known models, learned world models, Dyna, MCTS, MPC |
-| Multi-agent | Centralized critic, decentralized execution, parameter sharing, communication |
-| Deployment | Simulation, shadow mode, A/B testing, gradual rollout, monitoring, safety |
+ChatGPT gives generic advice and hallucinates RL algorithms. This skill encodes structured, verified knowledge that your agent loads deterministically — it won't tell you to use DQN for continuous actions or forget to mention reward clipping.
 
 ## License
 
-MIT
+MIT — use it, fork it, ship it.
+
+---
+
+⭐ **Star this repo** if you want your agent to stop guessing and start engineering.
